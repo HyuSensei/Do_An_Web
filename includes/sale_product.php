@@ -1,6 +1,6 @@
 <?php
 require_once("./db/config.php");
-$sql = "SELECT * FROM products WHERE category=N'Chăm sóc da' ";
+$sql = "SELECT * FROM products WHERE 13<=id AND id<27 ";
 $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -10,11 +10,11 @@ if (mysqli_num_rows($result) > 0) {
                     <div class="product__item">
                         <div class="product__item__pic" style="height: 275px;">
                         <img src="'.$row['img_main'].'" height=275px alt=""/>
-                            <div class="label new">New</div>
+                            <div class="label sale">Sale</div>
                             <ul class="product__hover">
                                 <li><a href="" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href=""><span class="icon_heart_alt"></span></a></li>
-                                <li><button class="add_to_cart" data-id="'.$row['id'].'" ><span class="icon_bag_alt"></span></button></li>
+                                <li><a href="./includes/add_to_cart.php?id='.$row['id'].'">button class="add_to_cart"><span class="icon_bag_alt"></span></button></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">

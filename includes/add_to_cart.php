@@ -1,6 +1,5 @@
 <?php
 require_once('../db/config.php');
-try{
     session_start();
     $id="";
     if(isset($_GET['id']))
@@ -15,16 +14,12 @@ try{
         $_SESSION['cart'][$id]['img_main']=$row['img_main'];
         $_SESSION['cart'][$id]['price']=$row['price'];
         $_SESSION['cart'][$id]['quantity']=1;
+        echo '<script>alert("Thêm giỏi hàng thành công");</script>';
+        echo '<script>window.location.href = "../index.php";</script>';
     }else{
         $_SESSION['cart'][$id]['quantity']++;
     }
     }
-
-    echo 1;
-    //echo json_encode($_SESSION['cart']);
     mysqli_close($connect);
-} catch (Throwable $e) {
-    echo $e->getMessage();
-}
 ?>
 

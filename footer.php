@@ -10,21 +10,15 @@
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Company</p>
+            <p class="footer-list-title">SKINLELE</p>
           </li>
 
           <li>
-            <p class="footer-list-text">
-              Find a location nearest you. See <a href="#" class="link">Our Stores</a>
-            </p>
+            <p class="footer-list-text bold">0986538387</p>
           </li>
 
           <li>
-            <p class="footer-list-text bold">+391 (0)35 2568 4593</p>
-          </li>
-
-          <li>
-            <p class="footer-list-text">hello@domain.com</p>
+            <p class="footer-list-text">skinlele02@gmail.com</p>
           </li>
 
         </ul>
@@ -32,23 +26,19 @@
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Useful links</p>
+            <p class="footer-list-title">Liên kết hữu ích</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">New Products</a>
+            <a href="#" class="footer-link">Trang Điểm</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Best Sellers</a>
+            <a href="#" class="footer-link">Chăm Sóc Da</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Bundle & Save</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Online Gift Card</a>
+            <a href="#" class="footer-link">Tạp Chí Làm Đẹp</a>
           </li>
 
         </ul>
@@ -56,43 +46,25 @@
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Infomation</p>
+            <p class="footer-list-title">Thông Tin</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Start a Return</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Contact Us</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Shipping FAQ</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Terms & Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Liên Hệ</a>
           </li>
 
         </ul>
 
         <div class="footer-list">
-
           <p class="newsletter-title">Good emails.</p>
 
           <p class="newsletter-text">
-            Enter your email below to be the first to know about new collections and product launches.
+            Nhập email của bạn dưới đây để là người đầu tiên biết về các bộ sưu tập mới và ra mắt sản phẩm.
           </p>
-
           <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email address" required class="email-field">
+            <input type="email" name="email_address" placeholder="Nhập địa chỉ email" required class="email-field">
 
-            <button type="submit" class="btn btn-primary">Subscribe</button>
+            <button type="submit" class="btn btn-primary">Đăng Ký</button>
           </form>
 
         </div>

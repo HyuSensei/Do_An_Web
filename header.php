@@ -1,6 +1,9 @@
 <!--
     - #HEADER
   -->
+<?php
+  $sum=$total=0;
+?>
 <style>
   .product__hover li:hover button {
     background: #ca1515;
@@ -116,11 +119,26 @@
           </button>
 
           <button class="header-action-btn" aria-label="cart item">
-            <data class="btn-text" value="0">$0.00</data>
+            <data class="btn-text" value="0"><?php if (isset($_SESSION['cart'])) foreach (($_SESSION['cart']) as $id =>  $value){
+              $sum = $value['price'] * $value['quantity'];
+              $total += $sum;
+              echo number_format($total, 0, '.', ',')."đ";
+            }else{
+              echo $total."đ";
+            } ?></data>
 
             <a href="shop-cart.php"><ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
 
-            <span class="btn-badge">0</span>
+            <span class="btn-badge"><?php
+             if (isset($_SESSION['cart'])) {
+              $cart = $_SESSION['cart'];
+              $num = count($cart);
+              echo $num;
+          } else {
+              $num = 0;
+              echo $num;
+          }
+             ?></span>
           </button>
 
       </div>

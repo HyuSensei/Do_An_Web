@@ -1,7 +1,14 @@
 <?php
+require_once('db/config.php');
 session_start();
 if(isset($_SESSION['id'])){
     header('location:index.php');
+}
+if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
+    $email=$_COOKIE['email'];
+    $password=$_COOKIE['password'];
+}else{
+    $email=$password="";
 }
 ?>
 <!DOCTYPE html>
@@ -35,16 +42,16 @@ if(isset($_SESSION['id'])){
                 <h2 style="font-size: 20px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;font-weight: bold;text-align: center;width: 80%;">ĐĂNG NHẬP</h2>
                 <form class="form" method="POST" action="./includes/process_login.php">
                     <div class="form-group">
-                        <label style="font-size: 18px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;">Email:</label>
-                        <input style="height: 40px;width: 80%;font-size: 14px" type="email" class="form-control" name="email" placeholder="Nhập email...">
+                        <label style="font-size: 18px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;">Tên đăng nhập:</label>
+                            <input style="height: 40px;width: 80%;font-size: 14px" type="email" class="form-control" name="email" placeholder="Nhập email..." value="<?php echo $email?>">
                     </div>
                     <div class="form-group">
                         <label style="font-size: 18px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;">Mật khẩu:</label>
-                        <input style="height: 40px;width: 80%;font-size: 14px" type="password" class="form-control" name="password" placeholder="Nhập mật khẩu...">
+                            <input style="height: 40px;width: 80%;font-size: 14px" type="password" class="form-control" name="password" placeholder="Nhập mật khẩu..." value="<?php echo $password?>">
                     </div>
                     <div style="display: flex;margin-top: 20px;" class="form-group">
-                        <input style="width: 30px;height: 25px;" name="remember" type="checkbox">
-                        <div style="margin-left:7px ;">Ghi nhớ đăng nhập</div>
+                        <input style="width: 15px;height: 25px;" name="remember" type="checkbox">
+                        <div style="margin-left:7px ;font-size: 14px;">Ghi nhớ đăng nhập</div>
                     </div>
                     <br>
                     <div class="form-group">

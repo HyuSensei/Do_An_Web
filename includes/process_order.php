@@ -43,7 +43,99 @@ try{
                 echo "Đặt hàng thành công!";
                 sendmail($acc_mail,$name,$title,$content);
                 unset($_SESSION['cart']);
-            }else{
+                $_SESSION['order_success']=true;
+                header('location:../shop-cart.php');
+                exit();
+            }elseif ($method=='ordervnpay'){
+
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+                $vnp_TmnCode = "CGXZLS0Z";
+                $vnp_HashSecret = "XNBCJFAKAZQSGTARRLGCHVZWCIOIGSHN";
+                $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+                $vnp_Returnurl = "http://localhost/SkinLeLe/vnpay_return.php";
+                $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
+                $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
+
+                $startTime = date("YmdHis");
+                $expire = date('YmdHis', strtotime('+15 minutes', strtotime($startTime)));
+
+                error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                if(isset($_SESSION['cart'])) {
+                    $cart = $_SESSION['cart'];
+                    $total_price = 0;
+                    foreach ($cart as $each) {
+                        $total_price += $each['price'] * $each['quantity'];
+                    }
+                    $vnp_TxnRef = rand(1, 10000);
+                    $vnp_Amount = $total_price;
+                    $vnp_BankCode = "";
+                    $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+                    $inputData = array(
+                        "vnp_Version" => "2.1.0",
+                        "vnp_TmnCode" => $vnp_TmnCode,
+                        "vnp_Amount" => $vnp_Amount * 100,
+                        "vnp_Command" => "pay",
+                        "vnp_CreateDate" => date('YmdHis'),
+                        "vnp_CurrCode" => "VND",
+                        "vnp_IpAddr" => $vnp_IpAddr,
+                        "vnp_Locale" => "vn",
+                        "vnp_OrderInfo" => "Thanh toan GD:" + $vnp_TxnRef,
+                        "vnp_OrderType" => "other",
+                        "vnp_ReturnUrl" => $vnp_Returnurl,
+                        "vnp_TxnRef" => $vnp_TxnRef,
+                        "vnp_ExpireDate" => $expire
+                    );
+                    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                        $inputData['vnp_BankCode'] = $vnp_BankCode;
+                    }
+
+                    ksort($inputData);
+                    $query = "";
+                    $i = 0;
+                    $hashdata = "";
+                    foreach ($inputData as $key => $value) {
+                        if ($i == 1) {
+                            $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                        } else {
+                            $hashdata .= urlencode($key) . "=" . urlencode($value);
+                            $i = 1;
+                        }
+                        $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                    }
+
+                    $vnp_Url = $vnp_Url . "?" . $query;
+                    if (isset($vnp_HashSecret)) {
+                        $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
+                        $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+                    }
+                    if(isset($_POST['redirect'])){
+                        $_SESSION['total']=$total_price;
+                        $order_status = 0;
+                        $payment = 'Thanh toán vnpay';
+                        $_SESSION['code_cart'] = $vnp_TxnRef;
+                        $sql = "INSERT INTO orders(id_customer, code_order, phone_customer, order_status, payment, customer_address,total_price)
+                        values ('$id_customer', '$vnp_TxnRef', '$phone_number', '$order_status', '$payment','$address','$total_price')";
+                        $order_query=mysqli_query($connect,$sql);
+                        if($order_query){
+                            $sql = "SELECT max(id) FROM orders WHERE id_customer = '$id_customer'";
+                            $result = mysqli_query($connect,$sql);
+                            $order_id = mysqli_fetch_assoc($result)['max(id)'];
+                            foreach($cart as $product_id => $each){
+                                $quantity = $each['quantity'];
+                                $sql = "INSERT INTO order_detail(id_product,id_order,quantity_order)
+                                values('$product_id','$order_id','$quantity')";
+                                mysqli_query($connect,$sql);
+                            }
+                        }
+                    }
+                    header('Location: ' . $vnp_Url);
+                    die();
+                }
+            }
+            else{
                 echo "không thanh công";
             }
         }

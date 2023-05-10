@@ -34,15 +34,24 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  * and open the template in the editor.
  */
 
-$vnp_TmnCode = "9R6CA62A"; //Website ID in VNPAY System
-$vnp_HashSecret = "MFBXWWHMXHJJAFIZSBHEHZIGHWKXVTLM"; //Secret key
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+$vnp_TmnCode = "CGXZLS0Z"; //Mã định danh merchant kết nối (Terminal Id)
+$vnp_HashSecret = "XNBCJFAKAZQSGTARRLGCHVZWCIOIGSHN"; //Secret key
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "http://localhost/Bao_Cao_Web_Nang_Cao-NXD/vnpay_return.php";
+$vnp_Returnurl = "http://localhost/vnpay_php/vnpay_return.php";
 $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
+$apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
 //Config input format
 //Expire
 $startTime = date("YmdHis");
-$expire = date('YmdHis', strtotime('+15 minutes', strtotime($startTime)));
+$expire = date('YmdHis',strtotime('+15 minutes',strtotime($startTime)));
+
 $vnp_SecureHash = $_GET['vnp_SecureHash'];
 $inputData = array();
 foreach ($_GET as $key => $value) {
@@ -50,6 +59,7 @@ foreach ($_GET as $key => $value) {
         $inputData[$key] = $value;
     }
 }
+
 unset($inputData['vnp_SecureHash']);
 ksort($inputData);
 $i = 0;
@@ -77,6 +87,9 @@ if (isset($_GET['vnp_Amount'])) {
     $code_cart = $_SESSION['code_cart'];
     $sql = "INSERT INTO vn_pay(code_cart, vnp_amount, vnp_bankcode, vnp_banktranno, vnp_cardtype, vnp_orderinfo, vnp_paydate, vnp_tmncode, vnp_transactionno) VALUES ('$code_cart','$vnp_Amount','$vnp_BankCode','$vnp_BankTranNo','$vnp_CardType','$vnp_OrderInfo','$vnp_PayDate','$vnp_TransactionNo','$vnp_TransactionStatus')";
     $result = mysqli_query($connect, $sql);
+    if($result){
+        unset($_SESSION['code_cart']);
+    }
 }
 ?>
 <!--Begin display -->
@@ -93,7 +106,7 @@ if (isset($_GET['vnp_Amount'])) {
         <div class="form-group">
 
             <label>Số tiền:</label>
-            <label><?php echo $_GET['vnp_Amount']/100 ?></label>
+            <label><?php echo $_GET['vnp_Amount']/100 ?> đ </label>
         </div>
         <div class="form-group">
             <label>Nội dung thanh toán:</label>
@@ -118,6 +131,16 @@ if (isset($_GET['vnp_Amount'])) {
                 if ($secureHash == $vnp_SecureHash) {
                     if ($_GET['vnp_ResponseCode'] == '00') {
                         echo "<span style='color:blue'>Thanh Toán Thành Công</span>";
+                        unset($_SESSION['cart']);
+                        $total=$_SESSION['total'];
+                        $content="<h2>Bạn vừa đặt 1 đơn hàng từ Skinlele</h2>
+                            <h5>$total đ</h5>";
+                        require_once('mail.php');
+                        $acc_mail=$_SESSION['email'];
+                        $name_customer=$_SESSION['name'];
+                        $title="Thông báo của Skinlele";
+                        sendmail($acc_mail,$name_customer,$title,$content);
+                        unset($_SESSION['total']);
                     } else {
                         echo "<span style='color:red'>Thanh Toán Không Thành Công</span>";
                     }

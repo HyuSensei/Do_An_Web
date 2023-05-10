@@ -4,6 +4,11 @@
 
     require_once('../db/config.php');
 
+    if(isset($_POST['remember'])){
+        $remember=true;
+    }else{
+        $remember=false;
+    }
     if(isset($_POST['login'])){
         if(!empty(trim($_POST['email']))&&!empty(trim($_POST['password']))){
             $email=$_POST['email'];
@@ -13,14 +18,22 @@
             if(mysqli_num_rows($query)>0){
                 $row=mysqli_fetch_assoc($query);
                 if($row['verify_status']=='1'){
+                    $id=$row['id'];
                     $_SESSION['id']=$row['id'];
                     $_SESSION['name']=$row['name'];
                     $_SESSION['email']=$row['email'];
                     $_SESSION['phone_number']=$row['phone_number'];
                     $_SESSION['address']=$row['address'];
                     $_SESSION['status']="Đăng nhập thành công!";
-                    header('location:../index.php');
-                    exit(0);
+                    if($remember){
+                        setcookie('email', $email, time() + (86400 * 30), "/");
+                        setcookie('password', $password, time() + (86400 * 30), "/");
+                    }
+                    //var_dump($_COOKIE['remember']);
+                    echo '<script>alert("' . $_SESSION['status'] . '");</script>';
+                    echo '<script>window.location.href = "../index.php";</script>';
+                    //header('location:../index.php');
+                    //exit(0);
                 }else{
                     $_SESSION['status']="Vui lòng xác thực email đã đăng ký";
                     header('location:../login.php');
@@ -39,4 +52,3 @@
         exit(0);
     }
     mysqli_close($connect);
-?>

@@ -17,6 +17,17 @@ if(isset($_SESSION['order_history'])){
     <!-- Title Tag  -->
     <title>skinlele</title>
     <?php include('css.php') ?>
+    <script>
+        $(document).ready(function() {
+            $("#show-confirm").click(function() {
+                var result = confirm("Bạn có chắc chắn muốn tiếp tục?");
+
+                if (result == true) {
+
+                }
+            });
+        });
+    </script>
 </head>
 <style>
     .container a p:hover {
@@ -48,7 +59,7 @@ if(isset($_SESSION['order_history'])){
             </div>
             <hr>
             <div class="container" style="margin-top: 20px;border-top: 2px;">
-                <a href="user.php">
+                <a href="myaccount.php">
                     <p><i class="fa-solid fa-user"></i> Thông Tin</p>
                 </a>
                 <br>

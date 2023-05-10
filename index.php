@@ -13,7 +13,7 @@ session_start();
     - favicon
   -->
   <?php include('css.php') ?>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(document).ready(function() {
       $('.add_to_cart').click(function() {
         let id = $(this).data('id');
@@ -34,7 +34,7 @@ session_start();
           });
       });
     });
-  </script>
+  </script> -->
 </head>
 
 <body id="top">
@@ -62,12 +62,12 @@ session_start();
                   </h1>
 
                   <p class="hero-text">
-                    Made using clean, non-toxic ingredients, our products are designed for everyone.
+                    Được làm bằng nguyên liệu sạch, không độc hại, sản phẩm của chúng tôi được thiết kế dành cho tất cả mọi người.
                   </p>
 
-                  <p class="price">Starting at $7.99</p>
+                  <p class="price">Chỉ với 199k</p>
 
-                  <a href="#" class="btn btn-primary">Shop Now</a>
+                  <a href="#" class="btn btn-primary">Mua Ngay</a>
 
                 </div>
 
@@ -85,12 +85,12 @@ session_start();
                   </h1>
 
                   <p class="hero-text">
-                    Made using clean, non-toxic ingredients, our products are designed for everyone.
+                    Được làm bằng nguyên liệu sạch, không độc hại, sản phẩm của chúng tôi được thiết kế dành cho tất cả mọi người.
                   </p>
 
-                  <p class="price">Starting at $7.99</p>
+                  <p class="price">Chỉ với 199k</p>
 
-                  <a href="#" class="btn btn-primary">Shop Now</a>
+                  <a href="#" class="btn btn-primary">Mua Ngay</a>
 
                 </div>
 
@@ -108,12 +108,12 @@ session_start();
                   </h1>
 
                   <p class="hero-text">
-                    Made using clean, non-toxic ingredients, our products are designed for everyone.
+                  Được làm bằng nguyên liệu sạch, không độc hại, sản phẩm của chúng tôi được thiết kế dành cho tất cả mọi người.
                   </p>
 
-                  <p class="price">Starting at $7.99</p>
+                  <p class="price">Chỉ với 199k</p>
 
-                  <a href="#" class="btn btn-primary">Shop Now</a>
+                  <a href="#" class="btn btn-primary">Mua Ngay</a>
 
                 </div>
 
@@ -143,10 +143,10 @@ session_start();
 
                 <h2 class="h2 card-title">Summer Collection</h2>
 
-                <p class="card-text">Starting at $17.99</p>
+                <p class="card-text">Chỉ với 99k</p>
 
                 <a href="#" class="btn-link">
-                  <span class="span">Shop Now</span>
+                  <span class="span">Mua Ngay</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -164,7 +164,7 @@ session_start();
                 <p class="card-text">Get the glow</p>
 
                 <a href="#" class="btn-link">
-                  <span class="span">Discover Now</span>
+                  <span class="span">Khám Phá Ngay</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -179,10 +179,10 @@ session_start();
 
                 <h2 class="h2 card-title">Buy 1 Get 1</h2>
 
-                <p class="card-text">Starting at $7.99</p>
+                <p class="card-text">Chỉ với 99k</p>
 
                 <a href="#" class="btn-link">
-                  <span class="span">Discover Now</span>
+                  <span class="span">Khám Phá Ngay</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -229,39 +229,21 @@ session_start();
 
       <!-- Product Section Begin -->
       <section class="product-details spad">
+        <div class="container" style="font-size: 25px;margin-bottom: 40px;">SẢN PHẨM MỚI</div>
         <div class="container">
           <div class="row" id="show_product">
-            <?php include('./includes/test_product.php') ?>
+            <?php include('./includes/new_product.php') ?>
           </div>
         </div>
       </section>
-      <!-- Banner Section End -->
-
-      <!-- <section class="section shop" id="shop" aria-label="shop" data-section>
+      <section class="product-details spad">
+        <div class="container" style="font-size: 25px;margin-bottom: 40px;">SẢN PHẨM GIẢM GIÁ</div>
         <div class="container">
-
-          <div class="title-wrapper">
-            <h2 class="h2 section-title">Sản Phẩm Mới</h2>
-
-            <a href="#" class="btn-link">
-              <span class="span">Shop All Products</span>
-
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
+          <div class="row" id="show_product">
+            <?php include('./includes/sale_product.php') ?>
           </div>
-
-          <ul class="has-scrollbar">
-
-
-
-          </ul>
-
         </div>
-      </section> -->
-
-
-
-
+      </section>
 
       <!--
         - #BANNER
@@ -275,11 +257,11 @@ session_start();
             <li>
               <div class="banner-card banner-card-1 has-before hover:shine">
 
-                <p class="card-subtitle">New Collection</p>
+                <p class="card-subtitle">Bộ Sưu Tập Mới</p>
 
-                <h2 class="h2 card-title">Discover Our Autumn Skincare</h2>
+                <h2 class="h2 card-title">Khám Phá Sản Phẩm Chăm Sóc Da Vào Mùa Thu</h2>
 
-                <a href="#" class="btn btn-secondary">Explore More</a>
+                <a href="#" class="btn btn-secondary">Xem Thêm</a>
 
                 <div class="has-bg-image" style="background-image: url('./assets/images/banner-1.jpg')"></div>
 
@@ -289,10 +271,10 @@ session_start();
             <li>
               <div class="banner-card banner-card-2 has-before hover:shine">
 
-                <h2 class="h2 card-title">25% off Everything</h2>
+                <h2 class="h2 card-title">25% Sale</h2>
 
                 <p class="card-text">
-                  Makeup with extended range in colors for every human.
+                  Trang điểm với nhiều loại khác nhau
                 </p>
 
                 <a href="#" class="btn btn-secondary">Shop Sale</a>
@@ -308,9 +290,6 @@ session_start();
       </section>
 
 
-
-
-
       <!--
         - #FEATURE
       -->
@@ -318,7 +297,7 @@ session_start();
       <section class="section feature" aria-label="feature" data-section>
         <div class="container">
 
-          <h2 class="h2-large section-title">Why Shop with Glowing?</h2>
+          <h2 class="h2-large section-title">Tại Sao Nên Mua Sắm Với SKINLELE</h2>
 
           <ul class="flex-list">
 
@@ -327,11 +306,10 @@ session_start();
 
                 <img src="./assets/images/feature-1.jpg" width="204" height="236" loading="lazy" alt="Guaranteed PURE" class="card-icon">
 
-                <h3 class="h3 card-title">Guaranteed PURE</h3>
+                <h3 class="h3 card-title">Đảm Bảo Tính Khiết</h3>
 
                 <p class="card-text">
-                  All Grace formulations adhere to strict purity standards and will never contain harsh or toxic
-                  ingredients
+                Tất cả các công thức của Grace đều tuân thủ các tiêu chuẩn nghiêm ngặt về độ tinh khiết và sẽ không bao giờ chứa các thành phần khắc nghiệt hoặc độc hại
                 </p>
 
               </div>
@@ -342,11 +320,10 @@ session_start();
 
                 <img src="./assets/images/feature-2.jpg" width="204" height="236" loading="lazy" alt="Completely Cruelty-Free" class="card-icon">
 
-                <h3 class="h3 card-title">Completely Cruelty-Free</h3>
+                <h3 class="h3 card-title">Hiệu quả</h3>
 
                 <p class="card-text">
-                  All Grace formulations adhere to strict purity standards and will never contain harsh or toxic
-                  ingredients
+                Tất cả các công thức của Grace đều tuân thủ các tiêu chuẩn nghiêm ngặt về độ tinh khiết và sẽ không bao giờ chứa các thành phần khắc nghiệt hoặc độc hại
                 </p>
 
               </div>
@@ -357,11 +334,10 @@ session_start();
 
                 <img src="./assets/images/feature-3.jpg" width="204" height="236" loading="lazy" alt="Ingredient Sourcing" class="card-icon">
 
-                <h3 class="h3 card-title">Ingredient Sourcing</h3>
+                <h3 class="h3 card-title">Tìm nguồn cung ứng nguyên liệu</h3>
 
                 <p class="card-text">
-                  All Grace formulations adhere to strict purity standards and will never contain harsh or toxic
-                  ingredients
+                Tất cả các công thức của Grace đều tuân thủ các tiêu chuẩn nghiêm ngặt về độ tinh khiết và sẽ không bao giờ chứa các thành phần khắc nghiệt hoặc độc hại
                 </p>
 
               </div>
@@ -392,15 +368,15 @@ session_start();
           <div class="offer-content">
 
             <p class="offer-subtitle">
-              <span class="span">Special Offer</span>
+              <span class="span">Đặc Biệt</span>
 
               <span class="badge" aria-label="20% off">-20%</span>
             </p>
 
-            <h2 class="h2-large section-title">Mountain Pine Bath Oil</h2>
+            <h2 class="h2-large section-title">Dầu tắm</h2>
 
             <p class="section-text">
-              Made using clean, non-toxic ingredients, our products are designed for everyone.
+              Dầu tắm thông núi Được làm bằng nguyên liệu sạch, không độc hại, sản phẩm của chúng tôi được thiết kế cho tất cả mọi người
             </p>
 
             <div class="countdown">
@@ -412,89 +388,9 @@ session_start();
 
             </div>
 
-            <a href="#" class="btn btn-primary">Get Only $39.00</a>
+            <a href="#" class="btn btn-primary">Chỉ với 299k</a>
 
           </div>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <section class="section blog" id="blog" aria-label="blog" data-section>
-        <div class="container">
-
-          <h2 class="h2-large section-title">More to Discover</h2>
-
-          <ul class="flex-list">
-
-            <li class="flex-item">
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
-                  <img src="./assets/images/blog-1.jpg" width="700" height="450" loading="lazy" alt="Find a Store" class="img-cover">
-                </figure>
-
-                <h3 class="h3">
-                  <a href="#" class="card-title">Find a Store</a>
-                </h3>
-
-                <a href="#" class="btn-link">
-                  <span class="span">Our Store</span>
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
-
-              </div>
-            </li>
-
-            <li class="flex-item">
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
-                  <img src="./assets/images/blog-2.jpg" width="700" height="450" loading="lazy" alt="From Our Blog" class="img-cover">
-                </figure>
-
-                <h3 class="h3">
-                  <a href="#" class="card-title">From Our Blog</a>
-                </h3>
-
-                <a href="#" class="btn-link">
-                  <span class="span">Our Store</span>
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
-
-              </div>
-            </li>
-
-            <li class="flex-item">
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
-                  <img src="./assets/images/blog-3.jpg" width="700" height="450" loading="lazy" alt="Our Story" class="img-cover">
-                </figure>
-
-                <h3 class="h3">
-                  <a href="#" class="card-title">Our Story</a>
-                </h3>
-
-                <a href="#" class="btn-link">
-                  <span class="span">Our Store</span>
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
-
-              </div>
-            </li>
-
-          </ul>
 
         </div>
       </section>

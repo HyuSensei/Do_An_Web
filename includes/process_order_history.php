@@ -40,7 +40,7 @@ require_once('./db/config.php');
                                     </p>
                                 </div>
                                 <div class="col-5">
-                                    <button style="font-size: 15px;background-color: #820813" type="button" class="btn btn-info">Đã Nhận</button>
+                                    <button style="font-size: 15px;background-color: #820813" type="button" id="show-confirm" class="btn btn-info">Đã Nhận</button>
                                     <button style="font-size: 15px;margin-left: 10px;background-color: white;color: gray" type="button" class="btn btn-info">Liên Hệ</button>
                                 </div>
                             </div>
