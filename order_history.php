@@ -3,6 +3,7 @@ session_start();
 if(isset($_SESSION['order_history'])){
     $order_history=$_SESSION['order_history'];
 }
+$action=isset($_GET['action']) ? $_GET['action'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -15,19 +16,8 @@ if(isset($_SESSION['order_history'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-    <title>skinlele</title>
+    <title>SkinLeLe</title>
     <?php include('css.php') ?>
-    <script>
-        $(document).ready(function() {
-            $("#show-confirm").click(function() {
-                var result = confirm("Bạn có chắc chắn muốn tiếp tục?");
-
-                if (result == true) {
-
-                }
-            });
-        });
-    </script>
 </head>
 <style>
     .container a p:hover {
@@ -39,7 +29,19 @@ if(isset($_SESSION['order_history'])){
 <?php include 'header.php'; ?>
 <main>
     <article>
-<div class="container-fluid" style="height: 90%;margin-top: 30px;margin-bottom: 200px;">
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.php"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <span>Quản Lý Đơn Hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 90%;margin-top: 30px;margin-bottom: 200px;">
     <div class="row" style="height: 100%;">
         <div style="background-color: white;" class="col-sm-3">
             <div class="container">
@@ -80,28 +82,59 @@ if(isset($_SESSION['order_history'])){
             <div style="margin-left: 100px;margin-top: 20px">
                 <div class="container-fluid">
                     <div class="row">
+
                         <div class="col-2">
-                            <a style="font-weight: bold;" href="./includes/process_order_history.php?action=<?php echo 'all_order' ?>">
-                                Tất cả
-                            </a>
+                        <?php if($action=="order_confirm") { ?>
+                            <a style="font-weight: bold;" href="order_history.php?action=<?php echo 'order_confirm' ?>">Chờ xác nhận</a>
+                        <?php } else { ?>
+                            <a href="order_history.php?action=<?php echo 'order_confirm' ?>">Chờ xác nhận</a>
+                        <?php } ?>
                         </div>
+
                         <div class="col-2">
-                            <a href="">Chờ xác nhận</a>
+                        <?php if($action=="order_ship") { ?>
+                            <a style="font-weight: bold;" href="order_history.php?action=<?php echo 'order_ship' ?>">Vận chuyển</a>
+                        <?php } else { ?>
+                            <a href="order_history.php?action=<?php echo 'order_ship' ?>">Vận chuyển</a>
+                        <?php } ?>
                         </div>
+
                         <div class="col-2">
-                            <a href="">Vận chuyển</a>
+                        <?php if($action=="order_complete") { ?>
+                            <a style="font-weight: bold;" href="order_history.php?action=<?php echo 'order_complete' ?>">Hoàn thành</a>
+                        <?php } else { ?>
+                            <a href="order_history.php?action=<?php echo 'order_complete' ?>">Hoàn thành</a>
+                        <?php } ?>
                         </div>
+
                         <div class="col-2">
-                            Hoàn thành
-                        </div>
-                        <div class="col-2">
-                            Đã hủy
+                        <?php if($action=="order_cancel") { ?>
+                            <a style="font-weight: bold;" href="order_history.php?action=<?php echo 'order_cancel' ?>">Đã hủy</a>
+                        <?php } else { ?>
+                            <a href="order_history.php?action=<?php echo 'order_cancel' ?>">Đã hủy</a>
+                        <?php } ?>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-top: 50px" class="container-fluid">
-                    <?php include ('includes/process_order_history.php')?>
+                    <?php
+                        switch ($action) {
+                            case 'order_confirm':
+                                include ('./includes/process_orderconfirm.php');
+                                break;
+                            case 'order_ship':
+                                include ('./includes/process_ordership.php');
+                                break;
+                            case 'order_complete':
+                                include ('./includes/process_ordercomplete.php');
+                                break;
+                            default:
+                                include ('./includes/process_orderconfirm.php');
+                                break;
+                        }
+
+                     ?>
                 </div>
             </div>
         </div>
@@ -110,6 +143,9 @@ if(isset($_SESSION['order_history'])){
         </article>
 </main>
 <?php include('footer.php') ?>
+<a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
 <!-- /End Footer Area -->
 <?php include('js.php') ?>
 </body>

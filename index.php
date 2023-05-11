@@ -8,33 +8,8 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glowing - Reveal The Beauty of Skin</title>
-  <!--
-    - favicon
-  -->
+  <title>SkinLeLe</title>
   <?php include('css.php') ?>
-  <!-- <script type="text/javascript">
-    $(document).ready(function() {
-      $('.add_to_cart').click(function() {
-        let id = $(this).data('id');
-        $.ajax({
-            type: "GET",
-            url: "./includes/add_to_cart.php",
-            data: {
-              id
-            }
-          })
-          .done(function(response) {
-            if (response == 1) {
-              alert('Thêm giỏ hàng thành công');
-            } else {
-              alert('Thêm giỏ hàng thất bại');
-              console.log("Lỗi", response);
-            }
-          });
-      });
-    });
-  </script> -->
 </head>
 
 <body id="top">

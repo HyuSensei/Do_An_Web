@@ -30,13 +30,13 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
         <div class="row">
             <div class="col-sm-6">
             <?php if (isset($_SESSION['status'])) { ?>
-                <div style="width: 80%;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;" >
-                    <strong>
+                <div>
+                    <p style="color: #c4908f;font-size: 15px;width: 80%;font-weight: bold;padding-top: 10px;background-color: #f3e0df;height: 40px;border-radius: 5px;">
                             <?php
                              echo $_SESSION['status'];
                              unset($_SESSION['status']);
                             ?>
-                    </strong>
+                    </p>
                 </div>
          <?php   } ?>
                 <h2 style="font-size: 20px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;font-weight: bold;text-align: center;width: 80%;">ĐĂNG NHẬP</h2>
@@ -65,7 +65,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
                 </form>
                 <div style="width: 80%;height: 150px;background-color: #f5f6f9;">
                     <div style="text-align: center;font-weight: bold;padding-top: 20px;margin-bottom: 10px;">TẠO TÀI KHOẢN NGAY</div>
-                    <button style="height: 50px;width: 95%;margin: auto;border: 1px solid;border-radius: 5px;"><a href="register.php">Đăng Ký</a></button>
+                    <button style="height: 50px;width: 95%;margin: auto;border: 2px solid;border-radius: 5px;font-weight: bold;"><a href="register.php">Đăng Ký</a></button>
                 </div>
             </div>
             <div class="col-sm-6"><img src="https://product.hstatic.net/1000006063/product/merzy_e_2800af15bd99458ca7d9b52d543266a0_1024x1024.jpg" alt="" width="100%"></div>

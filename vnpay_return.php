@@ -74,7 +74,7 @@ foreach ($inputData as $key => $value) {
 }
 
 $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
-if (isset($_GET['vnp_Amount'])) {
+if (isset($_GET['vnp_Amount']) && isset($_GET['vnp_BankTranNo'])) {
     $vnp_Amount = $_GET['vnp_Amount'];
     $vnp_BankCode = $_GET['vnp_BankCode'];
     $vnp_BankTranNo = $_GET['vnp_BankTranNo'];

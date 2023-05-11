@@ -76,18 +76,6 @@
     <p style="text-align: center;font-size: 18px; padding-top: 10px;font-weight: bold;">Chào Mừng Đến Với SkinLeLe!</p>
   </div>
 </div>
-<!-- <div class="container-fluid" style="background-color: #f3f3bf;height: 50px;">
-  <div class="row">
-    <div class="col-sm-8">
-      <p style="text-align: center;font-size: 18px; padding-top: 10px;font-weight: bold;">Chào Mừng Đến Với SkinLeLe!</p>
-    </div>
-    <div style="display: flex;padding-top: 10px;" class="col-sm-4">
-      <i style="margin-right: 10px;font-size: 18px;font-weight: bold;padding-top: 6px;" class="fa-solid fa-user"></i>
-      <a style="font-size: 18px;font-weight: bold;" href="login.php">Đăng Nhập / </a>
-      <a style="margin-left: 5px;font-size: 18px;font-weight: bold;" href="register.php">Đăng Ký</a>
-    </div>
-  </div>
-</div> -->
 <header class="header">
 
   <div class="header-top" data-header>
@@ -100,11 +88,12 @@
       </button>
 
       <div class="input-wrapper">
-        <input type="search" name="search" placeholder="Nhập..." class="search-field">
-
-        <button class="search-submit" aria-label="search">
-          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <form action="search.php" method="GET">
+              <input type="search" name="search" placeholder="Nhập..." class="search-field">
+              <button class="search-submit" aria-label="search">
+                  <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+              </button>
+        </form>
       </div>
 
       <a href="#" class="logo">
@@ -151,15 +140,11 @@
           </li>
 
           <li>
-            <a href="#collection" class="navbar-link has-after">Chăm Sóc Da</a>
+            <a href="product_chamsocda.php" class="navbar-link has-after">Chăm Sóc Da</a>
           </li>
 
           <li>
-            <a href="#shop" class="navbar-link has-after">Trang Điểm</a>
-          </li>
-
-          <li>
-            <a href="blog.php" class="navbar-link has-after">Tạp Chí Làm Đẹp</a>
+            <a href="product_trangdiem.php" class="navbar-link has-after">Trang Điểm</a>
           </li>
 
           <li>

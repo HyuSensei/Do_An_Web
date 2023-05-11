@@ -69,6 +69,4 @@ function send_register($email,$name,$title,$content,$verify_token){
 
 }
 
-// $content=rand(100000,999999);
-// sendmail('tienanh17022002@gmail.com','Nguyễn Tiến Anh','Chúc mừng bạn trở thành folder công ty Skinlele với 40% cổ phần','Bạn hãy chuyển khoản cho Phan Tiến Huy stk:22244421092002 MB để nhận 40% cổ phần   ');
 

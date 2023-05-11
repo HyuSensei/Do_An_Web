@@ -30,7 +30,7 @@ if(isset($_SESSION['order_success'])&& $_SESSION['order_success']){
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>SkinLeLe</title>
     <?php include('css.php') ?>
 </head>
 <body>
@@ -54,6 +54,7 @@ if(isset($_SESSION['order_success'])&& $_SESSION['order_success']){
 
     <section class="shop-cart spad">
         <div class="container">
+        <?php if (!empty($_SESSION['cart'])) { ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shop__cart__table">
@@ -68,7 +69,7 @@ if(isset($_SESSION['order_success'])&& $_SESSION['order_success']){
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (isset($_SESSION['cart'])) foreach (($_SESSION['cart']) as $id =>  $value) :  ?>
+                                <?php foreach (($_SESSION['cart']) as $id =>  $value): ?>
                                     <tr>
                                         <td class="cart__product__item">
                                             <img src="<?php echo $value['img_main'] ?>" width=100px alt="">
@@ -91,35 +92,24 @@ if(isset($_SESSION['order_success'])&& $_SESSION['order_success']){
                                                 <span style="margin: 10px;"><?php echo $value['quantity'] ?></span>
                                                 <a href="./includes/update_quantity_cart.php?id=<?php echo $id ?>&type=decrease" style="margin: 10px;"><i style="font-size: 25px;" class="fa-solid fa-circle-minus"></i></a>
                                             </div>
-
                                         </td>
                                         <td class="cart__total"><?php price_format($value['price'] * $value['quantity'])  ?> đ</td>
                                         <td class="cart__close" data-id="<?php echo $id ?>"><a href="./includes/delete_cart.php?id=<?php echo $id ?>"><span class="icon_close"></span></a></td>
                                         <?php
                                         $sum = $value['price'] * $value['quantity'];
                                         $total += $sum;
-
                                         ?>
+                                         <?php endforeach  ?>
                                     </tr>
-                                <?php endforeach  ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn">
-                        <a href="#">Continue Shopping</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn update__btn">
-                        <a href="#"><span class="icon_loading"></span> Update cart</a>
-                    </div>
-                </div>
-            </div>
-            <form action="./includes/process_order.php" method="POST" class="checkout__form">
+            <?php } else { ?>
+                        <div class="container"><p style="font-size: 20px;font-weight: bold;text-align: center;">Giỏ hàng trống!</p></div>
+            <?php } ?>
+            <form style="margin-top: 100px;" action="./includes/process_order.php" method="POST" class="checkout__form">
                             <div class="row">
                                 <div class="col-lg-6">
                                                 <h5>CHI TIẾT ĐẶT HÀNG</h5>
@@ -165,11 +155,11 @@ if(isset($_SESSION['order_success'])&& $_SESSION['order_success']){
                                                     <input type="checkbox" class="ordervnpay" name="method" value="ordervnpay" id="check-payment">
                                                     <span class="checkmark"></span>
                                                 </label>
-                                                <label style="font-size: 16px" for="paypal">
+                                                <!-- <label style="font-size: 16px" for="paypal">
                                                     Thanh toán momo
                                                     <input type="checkbox" class="ordermomo" name="method" value="ordermomo" id="paypal">
                                                     <span class="checkmark"></span>
-                                                </label>
+                                                </label> -->
                                             </div>
                                        <input type="submit" name="redirect" id="redirect"  class="primary-btn" style="width: 100%" value="Đặt hàng">
                                     </div>

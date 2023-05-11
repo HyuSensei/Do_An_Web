@@ -10,7 +10,7 @@ session_start();
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>SkinLeLe</title>
     <?php include('css.php') ?>
 </head>
 
@@ -56,12 +56,11 @@ session_start();
                         </div>
                         <div class="contact__form">
                             <h5>Gửi Mail</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Name">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Website">
-                                <textarea placeholder="Message"></textarea>
-                                <button type="submit" class="site-btn">Send Message</button>
+                            <form action="./includes/process_contact.php" method="POST">
+                                <input name="name" type="text" placeholder="Họ và tên...">
+                                <input name="mail" type="text" placeholder="Email...">
+                                <textarea name="mess" placeholder="Message..."></textarea>
+                                <button type="submit" class="site-btn">GỬI</button>
                             </form>
                         </div>
                     </div>
@@ -69,7 +68,7 @@ session_start();
                 <div class="col-lg-6 col-md-6">
                     <div class="contact__map">
                         <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7838.684254869503!2d106.70676642475235!3d10.785086936675276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1547181657956"
                         height="780" style="border:0" allowfullscreen="">
                     </iframe>
                 </div>

@@ -20,36 +20,36 @@ session_start();
         <div class="row">
             <div class="col-sm-6">
             <?php if (isset($_SESSION['status'])) { ?>
-                <div style="width: 80%;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;" >
-                    <strong style="padding: auto;">
+                <div>
+                    <p style="width: 80%;padding-top: 10px;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;">
                             <?php
                              echo $_SESSION['status'];
                              unset($_SESSION['status']);
                             ?>
-                    </strong>
+                    </p>
                 </div>
          <?php   } ?>
                 <h2 style="font-size: 20px;margin-bottom: 20px;font-weight: bold;width: 80%;text-align: center;">ĐĂNG KÝ</h2>
                 <form class="form" method="POST" action="./includes/process_register.php">
 
                     <div class="form-group">
-                        <label style="font-size: 18px;margin-bottom: 20px;">Họ và tên:</label>
+                        <label style="font-size: 15px;margin-bottom: 20px;">Họ và tên:</label>
                         <input style="height: 40px;width: 80%;font-size: 14px;" type="text" class="form-control" name="name" placeholder="Nhập họ và tên...">
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 18px;margin-bottom: 20px;">Địa Chỉ:</label>
+                        <label style="font-size: 15px;margin-bottom: 20px;">Địa chỉ:</label>
                         <input style="height: 40px;width: 80%;font-size: 14px;" type="text" class="form-control" name="address" placeholder="Nhập địa chỉ...">
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 18px;margin-bottom: 20px;">Số điện thoại:</label>
+                        <label style="font-size: 15px;margin-bottom: 20px;">Số điện thoại:</label>
                         <input style="height: 40px;width: 80%;font-size: 14px;" type="number" class="form-control" name="phone_number" placeholder="Nhập số điện thoại...">
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 18px;margin-bottom: 20px;">Email:</label>
+                        <label style="font-size: 15px;margin-bottom: 20px;">Email:</label>
                         <input style="height: 40px;width: 80%;font-size: 14px;" type="email" class="form-control" name="email" placeholder="Nhập email...">
                     </div>
                     <div class="form-group">
-                        <label style="font-size: 18px;margin-bottom: 20px;" for="pwd">Mật khẩu:</label>
+                        <label style="font-size: 15px;margin-bottom: 20px;" for="pwd">Mật khẩu:</label>
                         <input style="height: 40px;width: 80%;font-size: 14px;" type="password" class="form-control" name="password" placeholder="Nhập mật khẩu...">
                     </div>
                     <input id="register" name="register" style="width: 80%;

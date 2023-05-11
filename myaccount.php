@@ -12,7 +12,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-    <title>skinlele</title>
+    <title>SkinLeLe</title>
     <?php include('css.php') ?>
 </head>
 <style>
@@ -24,6 +24,18 @@ session_start();
 
 <body class="js" >
     <?php include 'header.php'; ?>
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.php"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <span>Thông Tin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid" style="height: 85%;margin-top: 100px;">
         <div class="row" style="height: 100%;">
             <div style="background-color: white;" class="col-sm-3">

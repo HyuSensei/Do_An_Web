@@ -10,12 +10,12 @@ session_start();
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>SkinLeLe</title>
     <?php include('css.php') ?>
 </head>
 
 <body>
-<?php include('header.php') ?> 
+<?php include('header.php') ?>
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
