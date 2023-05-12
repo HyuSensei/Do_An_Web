@@ -92,7 +92,7 @@ mysqli_close($connect);
                          ?> đ</div>
                         <p><?php echo $row['describe'] ?></p>
                         <div class="product__details__button">
-                            <a href="#" class="cart-btn"> Thêm giỏ hàng</a>
+                            <a href="./includes/add_to_cart.php?id=<?php echo $row['id']  ?>" class="cart-btn"> Thêm giỏ hàng</a>
 
                         </div>
 

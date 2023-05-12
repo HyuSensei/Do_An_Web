@@ -139,6 +139,9 @@ try{
                 echo "không thanh công";
             }
         }
+    }else{
+        echo '<script>alert("Vui lòng đăng nhập để đặt hàng!");</script>';
+        echo '<script>window.location.href = "../login.php";</script>';
     }
 } catch (Throwable $e) {
     echo $e->getMessage();
