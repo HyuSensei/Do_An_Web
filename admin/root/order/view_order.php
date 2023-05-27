@@ -7,16 +7,17 @@ $result = mysqli_query($connect, $sql);
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>id_customer</th>
-                <th>code_order</th>
-                <th>order_status</th>
-                <th>date</th>
-                <th>payment</th>
-                <th>customer_address</th>
-                <th>phone_customer</th>
-                <th>total_price</th>
-                <th>Sửa</th>
+                <th>ID</th>
+                <th>ID Khách Hàng</th>
+                <th>Mã Đơn Hàng</th>
+                <th>Trạng Thái</th>
+                <th>Ngày Đặt</th>
+                <th>Phương Thức</th>
+                <th>Địa Chỉ</th>
+                <th>Số Điện Thoại</th>
+                <th>Tổng Tiền</th>
+                <th>Duyệt Đơn</th>
+                <th>Vận Chuyển</th>
                 <th>Xóa</th>
             </tr>
         </thead>
@@ -51,12 +52,14 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['total_price'] ?></p>
                     </td>
                     <td>
-                        <a href="./order/edit_order.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">edit</span></a>
+                        <a class="btn btn-warning btn-sm" href="./order/confirm.php?confirm=1&id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: white;">Duyệt</span></a>
                     </td>
                     <td>
-                        <!-- <a href="./product/delete.php?id=<?php echo $value['id'] ?>"><span class="fa fa-trash" style="color: #e28585;"></span></a> -->
+                        <a class="btn btn-success btn-sm" href="./order/ship.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: white;">Vận Chuyển</span></a>
+                    </td>
+                    <td>
                         <form action="./order/code_orders.php" method="POST" class="d-inline">
-                            <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Xóa</button>
                         </form>
                     </td>
                 </tr>

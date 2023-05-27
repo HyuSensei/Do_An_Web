@@ -3,9 +3,6 @@ require_once('./data/connnect.php');
 $sql = "select * from vn_pay";
 $result = mysqli_query($connect, $sql);
 ?>
-
-<a href="./vnpay/create.php" style="float: right; background-color: e28585;" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
-
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -19,6 +16,7 @@ $result = mysqli_query($connect, $sql);
                 <th>vnp_orderinfo</th>
                 <th>vnp_paydate</th>
                 <th>vnp_tmncode</th>
+                <th>Xóa</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +29,10 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['code_cart'] ?></p>
                     </td>
                     <td>
-                        <p><?php echo $value['vnp_amount'] ?></p>
+                        <p><?php echo $value['vnp_amount'] ?> đ</p>
                     </td>
                     <td>
-                        <p><?php echo $value['vnp_bankcode'] ?>đ</p>
+                        <p><?php echo $value['vnp_bankcode'] ?></p>
                     </td>
                     <td>
                         <p><?php echo $value['vnp_banktranno'] ?></p>
@@ -51,11 +49,14 @@ $result = mysqli_query($connect, $sql);
                     <td>
                         <p><?php echo $value['vnp_tmncode'] ?></p>
                     </td>
-
+                    <td>
+                        <form action="./vnpay/code_vnpay.php" method="POST" class="d-inline">
+                            <button type="submit" name="delete" value="<?php echo $value['id_vnpay'] ?>" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
 
                 </tr>
             <?php endforeach ?>
         </tbody>
     </table>
 </div>
->

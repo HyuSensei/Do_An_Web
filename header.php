@@ -111,10 +111,12 @@
             <data class="btn-text" value="0"><?php if (isset($_SESSION['cart'])) foreach (($_SESSION['cart']) as $id =>  $value){
               $sum = $value['price'] * $value['quantity'];
               $total += $sum;
-              echo number_format($total, 0, '.', ',')."đ";
+
             }else{
-              echo $total."đ";
-            } ?></data>
+               $total=0;
+            } ?>
+
+            <?php echo number_format($total, 0, '.', ',')."đ"; ?></data>
 
             <a href="shop-cart.php"><ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
 

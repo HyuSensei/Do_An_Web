@@ -2,19 +2,22 @@
  session_start();
  require_once('../db/config.php');
  require_once('../mail.php');
- $acc_mail=$_SESSION['email'];
- $name_customer=$_SESSION['name'];
+ if(isset($_SESSION['email'])&&isset($_SESSION['name'])){
+    $acc_mail=$_SESSION['email'];
+    $name_customer=$_SESSION['name'];
+ }
  $title="Thông báo của Skinlele";
 try{
     if(isset($_SESSION['id'])){
-        if(isset($_POST['name'])&&isset($_POST['phone_number'])&&isset($_POST['address'])&&isset($_POST['method'])){
+        if(isset($_SESSION['cart'])){
+            if(isset($_POST['name'])&&isset($_POST['phone_number'])&&isset($_POST['address'])&&isset($_POST['method'])){
             $name=$_POST['name'];
             $phone_number=$_POST['phone_number'];
             $address=$_POST['address'];
             $id_customer=$_SESSION['id'];
             $method=$_POST['method'];
             if($method=="orderoff"){
-                if(isset($_SESSION['cart'])){
+
                     $cart = $_SESSION['cart'];
                     $total_price = 0;
                     foreach($cart as $each){
@@ -38,15 +41,15 @@ try{
                         values('$product_id','$order_id','$quantity')";
                         mysqli_query($connect,$sql);
                         }
+                        echo "Đặt hàng thành công!";
+                        sendmail($acc_mail,$name,$title,$content);
+                        unset($_SESSION['cart']);
+                        $_SESSION['order_success']=true;
+                        header('location:../shop-cart.php');
+                        exit();
                     }
                 }
-                echo "Đặt hàng thành công!";
-                sendmail($acc_mail,$name,$title,$content);
-                unset($_SESSION['cart']);
-                $_SESSION['order_success']=true;
-                header('location:../shop-cart.php');
-                exit();
-            }elseif ($method=='ordervnpay'){
+                elseif ($method=='ordervnpay'){
 
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
@@ -62,7 +65,6 @@ try{
 
                 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
-                if(isset($_SESSION['cart'])) {
                     $cart = $_SESSION['cart'];
                     $total_price = 0;
                     foreach ($cart as $each) {
@@ -108,7 +110,7 @@ try{
 
                     $vnp_Url = $vnp_Url . "?" . $query;
                     if (isset($vnp_HashSecret)) {
-                        $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
+                        $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);
                         $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                     }
                     if(isset($_POST['redirect'])){
@@ -134,17 +136,20 @@ try{
                     header('Location: ' . $vnp_Url);
                     die();
                 }
+            }else{
+                echo '<script>alert("Vui lòng chọn đầy đủ thông tin đặt hàng");</script>';
+                echo '<script>window.location.href = "../shop-cart.php";</script>';
             }
-            else{
-                echo "không thanh công";
-            }
+        }else{
+            echo '<script>alert("Giỏ hàng đang trống không thể đặt hàng");</script>';
+            echo '<script>window.location.href = "../shop-cart.php";</script>';
         }
-    }else{
+    }
+    else{
         echo '<script>alert("Vui lòng đăng nhập để đặt hàng!");</script>';
         echo '<script>window.location.href = "../login.php";</script>';
     }
 } catch (Throwable $e) {
     echo $e->getMessage();
 }
-    mysqli_close($connect);
-?>
+mysqli_close($connect);

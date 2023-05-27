@@ -14,7 +14,7 @@ if (mysqli_num_rows($result) > 0) {
                             <ul class="product__hover">
                                 <li><a href="" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href=""><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="./includes/add_to_cart.php?id='.$row['id'].'">button class="add_to_cart"><span class="icon_bag_alt"></span></button></a></li>
+                                <li><a href="./includes/add_to_cart.php?id='.$row['id'].'"><button class="add_to_cart"><span class="icon_bag_alt"></span></button></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
@@ -27,13 +27,7 @@ if (mysqli_num_rows($result) > 0) {
                             -webkit-line-clamp: 2;
                             line-height: 1.6rem;
                             margin-top: 10px;" href="product-details.php?id='.$row['id'].'">'.$row['product_name'].'</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
+
                             <div class="product__price">'.$formatted_amount.' đ</div>
                         </div>
                     </div>

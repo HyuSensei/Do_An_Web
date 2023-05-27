@@ -10,5 +10,13 @@
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
     <!-- Style css -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dlabnav {
+            overflow-y: auto;
+            /* Cho phép cuộn dọc */
+            max-height: 900px;
 
+        }
+    </style>
 </head>

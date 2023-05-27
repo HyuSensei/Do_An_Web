@@ -65,7 +65,7 @@ $action=isset($_GET['action']) ? $_GET['action'] : '';
                     <p><i class="fa-solid fa-user"></i> Thông Tin</p>
                 </a>
                 <br>
-                <a href="./includes/process_order_history.php">
+                <a href="">
                     <p style="font-weight: bold;"><i class="fa-sharp fa-solid fa-bag-shopping"></i> Quản Lý Đơn Hàng</p>
                 </a>
                 <br>

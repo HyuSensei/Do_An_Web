@@ -28,38 +28,31 @@ require('../data/connnect.php');
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            <a href="../tableCustomer.php" class="btn btn-danger float-end">Quay lại</a>
+                            Nhập thông tin sửa đánh giá
+                            <a href="../tableRating.php" class="btn btn-danger float-end">Quay lại</a>
                         </h4>
                     </div>
                     <div class="card-body">
                     <?php
                         if (isset($_GET['id'])) {
                             $id = mysqli_real_escape_string($connect, $_GET['id']);
-                            $query = "SELECT * FROM custumers WHERE id='$id' ";
+                            $query = "SELECT * FROM rating WHERE id='$id' ";
                             $query_run = mysqli_query($connect, $query);
                             if (mysqli_num_rows($query_run) > 0) {
                                 $value = mysqli_fetch_array($query_run);
                         ?>
-                        <form class="form" action="./code_customer.php" method="POST">
+                        <form class="form" action="./code_rate.php" method="POST">
                             <input type="text" name="id" value="<?= $value['id'] ?>" hidden>
                             <div class="mb-3">
-                                <label>Tên khách hàng</label>
-                                <input type="text" name="name" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter name." value="<?= $value['name']?>">
+                                <label>Đánh giá</label>
+                                <input type="number" name="rate" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter name." value="<?= $value['rate']?>">
                             </div>
                             <div class="mb-3">
-                                <label>Số điện thoại</label>
-                                <input type="text" name="phone_number" class="form-control" data-rule-required="true" data-rule-minlength="10" data-msg-required="Please enter phone." value="<?= $value['phone_number']?>">
+                                <label>Ghi chú</label>
+                                <input type="text" name="comment" class="form-control" data-rule-required="true" data-rule-minlength="10" data-msg-required="Please enter phone." value="<?= $value['comment']?>">
                             </div>
                             <div class="mb-3">
-                                <label>Địa chỉ</label>
-                                <input type="text" name="address" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter address." value="<?= $value['address']?>">
-                            </div>
-                            <div class="mb-3">
-                                <label>Status</label>
-                                <input type="text" name="status" class="form-control" value="<?= $value['verify_status']?>">
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" name="update" class="btn btn-primary" value="Sửa thông tin khách hàng">
+                                <input type="submit" name="update" class="btn btn-primary" value="Sửa đánh giá">
                             </div>
                         </form>
                         <?php

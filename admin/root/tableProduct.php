@@ -75,68 +75,20 @@ include('./data/config.php')
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-
-                <div class="row">
-                    <div class="col-xl-9 col-xxl-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-xl-6">
-                                        <div class="card-bx bg-blue">
-                                            <img class="pattern-img" src="images/pattern/pattern6.png" alt="">
-                                            <div class="card-info text-white">
-                                                <img src="images/pattern/circle.png" class="mb-4" alt="">
-                                                <h2 class="text-white card-balance">$824,571.93</h2>
-                                                <p class="fs-16">Wallet Balance</p>
-                                                <span>+0,8% than last week</span>
-                                            </div>
-                                            <a class="change-btn" href="javascript:void(0);"><i class="fa fa-caret-up up-ico"></i>Change<span class="reload-icon"><i class="fas fa-sync-alt reload active"></i></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="row  mt-xl-0 mt-4">
-                                            <div class="col-md-6">
-                                                <h4 class="card-title">Card's Overview</h4>
-                                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit psu olor</span>
-                                                <ul class="card-list mt-4">
-                                                    <li><span class="bg-blue circle"></span>Account<span>20%</span></li>
-                                                    <li><span class="bg-success circle"></span>Services<span>40%</span></li>
-                                                    <li><span class="bg-warning circle"></span>Restaurant<span>15%</span></li>
-                                                    <li><span class="bg-light circle"></span>Others<span>15%</span></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <canvas id="polarChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
                     <!-- Table Start -->
                     <div class="container-fluid pt-4 px-4" style="background-color: #e8eaec;">
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="rounded h-100 p-4" style="background-color: #e8eaec;box-shadow:-2px -13px 50px 6px grey;">
-                                    <h6 class="mb-4" style="color: #e28585;">Product Table</h6>
-                                    <h2>Modal Demo</h2>
-                                    <button class='btn'>Open Modal</button>
-                                    <div class="modal">
-                                        <div class="modal-content">
-                                            <span class="close">&times;</span>
-                                            <?php include('./product/create.php') ?>
-                                        </div>
-                                    </div>
+
+                                    <h2>Quản lý sản phẩm</h2>
+                                    <?php include('./product/message.php') ?>
+                                    <button class='btn'>Bảng sản phẩm</button>
                                     <?php include('./product/view_product.php') ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Table End -->
 
 
                 </div>

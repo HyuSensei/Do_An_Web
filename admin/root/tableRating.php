@@ -8,36 +8,7 @@ include('./data/config.php')
 <?php include('./component/head.php') ?>
 
 <body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <!-- <div id="preloader">
-        <div class="waviy">
-            <span style="--i:1">L</span>
-            <span style="--i:2">o</span>
-            <span style="--i:3">a</span>
-            <span style="--i:4">d</span>
-            <span style="--i:5">i</span>
-            <span style="--i:6">n</span>
-            <span style="--i:7">g</span>
-            <span style="--i:8">.</span>
-            <span style="--i:9">.</span>
-            <span style="--i:10">.</span>
-        </div>
-    </div> -->
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
         <div class="nav-header">
             <a href="index.php" class="brand-logo">
                 <svg class="logo-abbr" width="53" height="53" viewBox="0 0 53 53">
@@ -53,25 +24,12 @@ include('./data/config.php')
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
 
-
-
-        <!--**********************************
-            Header start
-        ***********************************-->
         <?php include('./component/header.php') ?>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
+
 
         <?php include('./sidebar.php') ?>
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
@@ -81,31 +39,21 @@ include('./data/config.php')
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="rounded h-100 p-4" style="background-color: #e8eaec;box-shadow:-2px -13px 50px 6px grey;">
-                                <div class="rows"><?php include('./vnpay/view_vnpay.php') ?></div>
+                                <?php include('./rate/message.php') ?>
+                                <h6 class="mb-4" style="color: #e28585;">Bảng Đánh Giá</h6>
+                                <div class="row"> <?php include('./rate/view_rate.php') ?></div>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Table End -->
 
-
             </div>
         </div>
     </div>
-    <!--**********************************
-            Content body end
-        ***********************************-->
-
 
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
     <?php include('./jquery.php') ?>
 </body>
 

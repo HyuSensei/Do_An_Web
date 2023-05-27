@@ -27,8 +27,8 @@ require('../data/connnect.php');
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>value Edit
-                            <a href="../tableProduct.php" class="btn btn-danger float-end">BACK</a>
+                        <h4>Thông tin sản phẩm sửa
+                            <a href="../tableProduct.php" class="btn btn-danger float-end">Quay lại</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -46,36 +46,37 @@ require('../data/connnect.php');
                                     <input type="hidden" name="id" value="<?= $value['id']; ?>">
 
                                     <div class="mb-3">
-                                        <label>product_name</label>
+                                        <label>Tên sản phẩm</label>
                                         <input type="text" name="product_name" class="form-control" value="<?= $value['product_name']; ?>" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter ten san pham.">
                                     </div>
                                     <div class="mb-3">
-                                        <label>describe</label>
+                                        <label>Mô tả</label>
                                         <input type="text" name="describe" class="form-control" value="<?= $value['describe']; ?>" data-rule-required="true" data-msg-required="Please enter mo ta.">
                                     </div>
                                     <div class="mb-3">
-                                        <label>img_main</label>
-                                        <input type="text" name="img_main" class="form-control" value="<?= $value['img_main']; ?>" data-rule-required="true" data-msg-required="Please enter anh.">
+                                        <input type="text" hidden name="img_main" value="<?= $value['img_main'] ?>">
+                                        <img src="<?= $value['img_main'] ?>" width="200px" alt="">
                                     </div>
                                     <div class="mb-3">
-                                        <label>price</label>
+                                        <label>Ảnh sản phẩm mới</label>
+                                        <input type="file" name="img_main_new" class="form-control" data-rule-required="true" data-msg-required="Please enter anh.">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Giá</label>
                                         <input type="text" name="price" class="form-control" value="<?= $value['price']; ?>" data-rule-required="true" data-rule-minlength="5" data-msg-required="Please enter gia.">
                                     </div>
                                     <div class="mb-3">
-                                        <label>type</label>
+                                        <label>Loại</label>
                                         <input type="text" name="type" class="form-control" value="<?= $value['type']; ?>" data-rule-required="true" data-rule-minlength="5" data-msg-required="Please enter khuyen mai.">
                                     </div>
+
                                     <div class="mb-3">
-                                        <label>quantity</label>
-                                        <input type="text" name="quantity" class="form-control" value="<?= $value['quantity']; ?>" data-rule-required="true" data-rule-minlength="3" data-msg-required="Please enter danh muc.">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>category</label>
+                                        <label>Danh mục</label>
                                         <input type="text" name="category" class="form-control" value="<?= $value['category']; ?>" data-rule-required="true" data-rule-minlength="3" data-msg-required="Please enter danh muc.">
                                     </div>
                                     <div class="mb-3">
                                         <button type="submit" name="update" class="btn btn-primary">
-                                            Update value
+                                            Sửa sản phẩm
                                         </button>
                                     </div>
 

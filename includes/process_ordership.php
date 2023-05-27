@@ -2,14 +2,14 @@
 require_once('./db/config.php');
         if(isset($_SESSION['id'])){
             $id=$_SESSION['id'];
-            $sql="SELECT products.*,products.price,products.product_name,products.img_main,order_detail.quantity_order,orders.total_price,order_detail.id_order,order_detail.id_product,orders.order_status,orders.payment
+            $sql="SELECT products.*,order_detail.*,orders.*
             FROM order_detail,products,orders
-            WHERE products.id=order_detail.id_product AND orders.id=order_detail.id_order AND id_customer='$id' AND order_status='1'";
+            WHERE products.id=order_detail.id_product
+            AND orders.id=order_detail.id_order
+            AND id_customer='$id'
+            AND order_status='1'";
             $result=mysqli_query($connect,$sql);
             if(mysqli_num_rows($result)>0) {
-                $sql_id_customer = "SELECT * FROM orders WHERE id_customer='$id'";
-                $result_id_customer = mysqli_query($connect, $sql_id_customer);
-                $check_order=0;
                 $check_id_product=0;
                 $status_order="";
                     while ($row = mysqli_fetch_assoc($result)){

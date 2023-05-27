@@ -2,7 +2,7 @@
             Sidebar start
         ***********************************-->
 
-<div class="dlabnav">
+        <div class="dlabnav">
     <div class="dlabnav-scroll">
         <ul class="metismenu" id="menu">
             <li class="dropdown header-profile">
@@ -17,32 +17,47 @@
             </li>
             <li><a href="./index.php" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
-                    <span class="nav-text">Dashboard</span>
+                    <span class="nav-text">Trang Chủ</span>
                 </a>
             </li>
             <li><a href="./tableProduct.php" aria-expanded="true">
                     <i class="flaticon-050-info"></i>
-                    <span class="nav-text">Product</span>
+                    <span class="nav-text">Sản Phẩm</span>
                 </a>
             </li>
             <li><a href="./tableCustomer.php" aria-expanded="false">
-                    <i class="flaticon-041-graph"></i>
-                    <span class="nav-text">Customer</span>
+            <i class="fas fa-user"></i>
+                    <span class="nav-text">Khách Hàng</span>
                 </a>
             </li>
             <li><a href="./tableOrder.php" aria-expanded="false">
-                    <i class="flaticon-086-star"></i>
-                    <span class="nav-text">Order</span>
+            <i class="flaticon-022-copy"></i>
+                    <span class="nav-text">Đặt Hàng</span>
                 </a>
             </li>
             <li><a href="./tableVnpay.php" aria-expanded="false">
                     <i class="flaticon-045-heart"></i>
-                    <span class="nav-text">Vnpay</span>
+                    <span class="nav-text">Thanh Toán</span>
+                </a>
+            </li>
+            <li><a href="./tableOrderDetail.php" aria-expanded="false">
+            <i class="flaticon-022-copy"></i>
+                    <span class="nav-text">Chi Tiết Đặt Hàng</span>
+                </a>
+            </li>
+            <li><a href="./tableRating.php" aria-expanded="false">
+            <i class="flaticon-086-star"></i>
+                    <span class="nav-text">Đánh Giá</span>
+                </a>
+            </li>
+            <li><a href="./statistical.php" aria-expanded="false">
+            <i class="flaticon-072-printer"></i>
+                    <span class="nav-text">Thống Kê</span>
                 </a>
             </li>
             <li><a href="../logout.php" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-013-checkmark"></i>
-                    <span class="nav-text">Logout</span>
+                    <span class="nav-text">Đăng Xuất</span>
                 </a>
             </li>
 

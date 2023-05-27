@@ -226,11 +226,8 @@
                                         $filtervalues = $_GET['search'];
                                         $query = "SELECT * FROM products WHERE CONCAT(id,product_name) LIKE '%$filtervalues%' ";
                                         $query_run = mysqli_query($link, $query);
-
-
                                         if (mysqli_num_rows($query_run) > 0) {
                                             foreach ($query_run as $items) {
-
                                     ?>
                                                 <tr>
                                                     <td><?= $items['id']; ?></td>

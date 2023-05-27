@@ -1,7 +1,23 @@
 <?php
     include('./db/config.php');
-        $sql="SELECT * FROM products WHERE category=N'Chăm sóc da'";
+        if(isset($_GET['page'])){
+            $page=$_GET['page'];
+        }else{
+            $page=1;
+        }
+        $prev = $page - 1;
+        $next = $page + 1;
+
+        $product_page=8;
+        $total_pages_sql = "SELECT COUNT(*)  FROM products WHERE category=N'Chăm sóc da'";
+        $result = mysqli_query($connect, $total_pages_sql);
+        $total_rows = mysqli_fetch_array($result)[0];
+        $total_pages = ceil($total_rows / $product_page);
+
+        $offset=($page-1)*$product_page;
+        $sql = "SELECT * FROM products WHERE category=N'Chăm sóc da' LIMIT $offset, $product_page";
         $query=mysqli_query($connect,$sql);
+
         if (mysqli_num_rows($query) > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
                 $formatted_amount = number_format($row['price'] , 0, '.', ',');
@@ -26,13 +42,6 @@
                                     -webkit-line-clamp: 2;
                                     line-height: 1.6rem;
                                     margin-top: 10px;" href="product-details.php?id='.$row['id'].'">'.$row['product_name'].'</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
                                     <div class="product__price">'.$formatted_amount.' đ</div>
                                 </div>
                             </div>

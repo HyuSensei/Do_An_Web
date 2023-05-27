@@ -24,16 +24,13 @@
                     $_SESSION['email']=$row['email'];
                     $_SESSION['phone_number']=$row['phone_number'];
                     $_SESSION['address']=$row['address'];
-                    $_SESSION['status']="Đăng nhập thành công!";
                     if($remember){
                         setcookie('email', $email, time() + (86400 * 30), "/");
                         setcookie('password', $password, time() + (86400 * 30), "/");
                     }
                     //var_dump($_COOKIE['remember']);
-                    echo '<script>alert("' . $_SESSION['status'] . '");</script>';
+                    echo '<script>alert("Đăng nhập thành công!");</script>';
                     echo '<script>window.location.href = "../index.php";</script>';
-                    //header('location:../index.php');
-                    //exit(0);
                 }else{
                     $_SESSION['status']="Vui lòng xác thực email đã đăng ký";
                     header('location:../login.php');

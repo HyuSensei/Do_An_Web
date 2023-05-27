@@ -4,7 +4,7 @@ $sql = "select * from products";
 $result = mysqli_query($connect, $sql);
 ?>
 
-<a href="./product/create.php" style="float: right; background-color: e28585;" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
+<a href="./product/create.php" style="float: right; background-color: e28585;" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
 
 <div class="table-responsive">
     <table class="table">
@@ -16,7 +16,6 @@ $result = mysqli_query($connect, $sql);
                 <th>Ảnh</th>
                 <th>Giá</th>
                 <th>Danh mục</th>
-                <th>Xem</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -57,15 +56,12 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['category'] ?></p>
                     </td>
                     <td>
-                        <a href="./product/view.php?id=<?php echo $value['id'] ?>"><span class="fa fa-eye" style="color: #e28585;"></span></a>
-                    </td>
-                    <td>
-                        <a href="./product/edit.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">edit</span></a>
+                        <a style="text-decoration: none;" href="./product/edit.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">Sửa</span></a>
                     </td>
                     <td>
                         <!-- <a href="./product/delete.php?id=<?php echo $value['id'] ?>"><span class="fa fa-trash" style="color: #e28585;"></span></a> -->
                         <form action="./product/code.php" method="POST" class="d-inline">
-                            <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Xóa</button>
                         </form>
                     </td>
                 </tr>

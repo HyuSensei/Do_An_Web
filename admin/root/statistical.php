@@ -1,6 +1,8 @@
 <?php
 session_start();
-include('./data/config.php')
+require_once('../root/data/connnect.php');
+$sql  = "SELECT code_order FROM orders;";
+$result = mysqli_query($connect, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,24 +77,42 @@ include('./data/config.php')
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
+                <div class="row invoice-card-row">
 
-                <!-- Table Start -->
-                <div class="container-fluid pt-4 px-4" style="background-color: #e8eaec;">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="rounded h-100 p-4" style="background-color: #e8eaec;box-shadow:-2px -13px 50px 6px grey;">
-                                <div class="rows"><?php include('./vnpay/view_vnpay.php') ?></div>
+
+
+                    <h1>Bảng thống kê doanh thu</h1>
+
+                    <!-- Table Start -->
+                    <div class="container-fluid pt-4 px-4" style="background-color: #e8eaec;">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="rounded h-100 p-4" style="background-color: #e8eaec;box-shadow:-2px -13px 50px 6px grey;">
+                                    <?php
+                                    // Mảng dữ liệu ngày
+                                    $ngay = array('Thang1', 'Thang2', 'Thang3', 'Thang4', 'Thang5', 'Thang6', 'Thang7', 'Thang8', 'Thang9', 'Thang10', 'Thang11', 'Thang12');
+
+                                    // Mảng dữ liệu giá trị
+                                    $giaTri = array();
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $codeOrder = $row['code_order'];
+                                        $giaTri[] = $codeOrder;
+                                    }
+                                    ?>
+
+                                    <canvas id="lineChart" width="800" height="400"></canvas>
+
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Table End -->
+
+
                 </div>
-                <!-- Table End -->
-
-
             </div>
         </div>
-    </div>
-    <!--**********************************
+        <!--**********************************
             Content body end
         ***********************************-->
 

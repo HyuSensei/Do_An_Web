@@ -81,7 +81,10 @@ include('./data/config.php')
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="rounded h-100 p-4" style="background-color: #e8eaec;box-shadow:-2px -13px 50px 6px grey;">
-                                <div class="rows"><?php include('./vnpay/view_vnpay.php') ?></div>
+                                <?php include('./customer/message.php') ?>
+                                <h6 class="mb-4" style="color: #e28585;">Bảng Chi Tiết Đặt Hàng</h6>
+                                <div class="row"> <?php include('./orderdetail/view_orderdetail.php') ?></div>
+
                             </div>
                         </div>
                     </div>

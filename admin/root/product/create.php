@@ -1,7 +1,6 @@
 <?php
-session_start();
+    session_start();
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -26,43 +25,43 @@ session_start();
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>value Add
-                            <a href="../tableProduct.php" class="btn btn-danger float-end">BACK</a>
+                        <h4>Thông tin thêm sản phẩm
+                            <a href="../tableProduct.php" class="btn btn-danger float-end">Quay lại</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" action="code.php" method="POST">
+                        <form class="form" action="code.php" method="POST" enctype="multipart/form-data">
 
                             <div class="mb-3">
-                                <label>product_name</label>
+                                <label>Tên sản phẩm</label>
                                 <input type="text" name="product_name" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter ten san pham.">
                             </div>
                             <div class="mb-3">
-                                <label>describe</label>
+                                <label>Mô tả</label>
                                 <input type="text" name="describe" class="form-control" data-rule-required="true" data-msg-required="Please enter mo ta.">
                             </div>
-                            <div class="mb-3">
-                                <label>img_main</label>
+                            <!-- <div class="mb-3">
+                                <label>Ảnh</label>
                                 <input type="text" name="img_main" class="form-control" data-rule-required="true" data-msg-required="Please enter anh.">
+                            </div> -->
+                            <div class="mb-3">
+                                <label>Ảnh</label>
+                                <input type="file" name="img_main" class="form-control" data-rule-required="true" data-msg-required="Please enter anh.">
                             </div>
                             <div class="mb-3">
-                                <label>price</label>
+                                <label>Giá</label>
                                 <input type="text" name="price" class="form-control" data-rule-required="true" data-rule-minlength="5" data-msg-required="Please enter gia.">
                             </div>
                             <div class="mb-3">
-                                <label>type</label>
+                                <label>Loại</label>
                                 <input type="text" name="type" class="form-control" data-rule-required="true" data-rule-minlength="5" data-msg-required="Please enter khuyen mai.">
                             </div>
                             <div class="mb-3">
-                                <label>quantity</label>
-                                <input type="text" name="quantity" class="form-control" data-rule-required="true" data-rule-minlength="5" data-msg-required="Please enter khuyen mai.">
-                            </div>
-                            <div class="mb-3">
-                                <label>category</label>
+                                <label>Danh mục</label>
                                 <input type="text" name="category" class="form-control" data-rule-required="true" data-rule-minlength="3" data-msg-required="Please enter danh muc.">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="save" class="btn btn-primary">Save value</button>
+                                <button type="submit" name="save" class="btn btn-primary">Thêm sản phẩm</button>
                             </div>
 
                         </form>

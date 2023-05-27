@@ -27,38 +27,34 @@ session_start();
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            <a href="../tableCustomer.php" class="btn btn-danger float-end">BACK</a>
+                            <a href="../tableCustomer.php" class="btn btn-danger float-end">Quay lại</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" action="code_customer.php" method="POST">
+                        <form class="form" action="./code_customer.php" method="POST">
 
                             <div class="mb-3">
-                                <label>name</label>
+                                <label>Tên khách hàng</label>
                                 <input type="text" name="name" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter name.">
                             </div>
                             <div class="mb-3">
-                                <label>email</label>
+                                <label>Email</label>
                                 <input type="email" name="email" class="form-control" data-rule-email="true" data-msg-email="Please enter email.">
                             </div>
                             <div class="mb-3">
-                                <label>phone_number</label>
+                                <label>Số điện thoại</label>
                                 <input type="text" name="phone_number" class="form-control" data-rule-required="true" data-rule-minlength="10" data-msg-required="Please enter phone.">
                             </div>
                             <div class="mb-3">
-                                <label>address</label>
+                                <label>Địa chỉ</label>
                                 <input type="text" name="address" class="form-control" data-rule-required="true" data-rule-minlength="6" data-msg-required="Please enter address.">
                             </div>
                             <div class="mb-3">
-                                <label>password</label>
-                                <input type="text" name="password" class="form-control" data-rule-required="true" data-rule-minlength="3" data-msg-required="Please enter password.">
+                                <label>Mật khẩu</label>
+                                <input type="password" name="password" class="form-control" data-rule-required="true" data-rule-minlength="3" data-msg-required="Please enter password.">
                             </div>
                             <div class="mb-3">
-                                <label>token</label>
-                                <input type="text" name="verify_token" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" name="save" class="btn btn-primary">Save value</button>
+                                <button type="submit" name="save" class="btn btn-primary">Thêm khách hàng</button>
                             </div>
 
                         </form>
