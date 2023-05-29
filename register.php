@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@ session_start();
             <div class="col-sm-6">
             <?php if (isset($_SESSION['status'])) { ?>
                 <div>
-                    <p style="width: 80%;padding-top: 10px;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;">
+                    <p style="width: 80%;padding-top: 10px;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;border-radius: 10px;padding-left: 10px;">
                             <?php
                              echo $_SESSION['status'];
                              unset($_SESSION['status']);

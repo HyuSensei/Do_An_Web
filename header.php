@@ -102,10 +102,10 @@
 
       <div class="header-actions">
 
-          <button class="header-action-btn" aria-label="favourite item">
-            <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+          <!-- <button class="header-action-btn" aria-label="favourite item">
+          <a href=""><ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
             <span class="btn-badge">0</span>
-          </button>
+          </button> -->
 
           <button class="header-action-btn" aria-label="cart item">
             <data class="btn-text" value="0"><?php if (isset($_SESSION['cart'])) foreach (($_SESSION['cart']) as $id =>  $value){
@@ -119,7 +119,6 @@
             <?php echo number_format($total, 0, '.', ',')."đ"; ?></data>
 
             <a href="shop-cart.php"><ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
-
             <span class="btn-badge"><?php
              if (isset($_SESSION['cart'])) {
               $cart = $_SESSION['cart'];
@@ -199,21 +198,29 @@
       </li>
 
       <li>
-        <a href="#collection" class="navbar-link" data-nav-link>Chăm Sóc Da</a>
+        <a href="product_chamsocda.php" class="navbar-link" data-nav-link>Chăm Sóc Da</a>
       </li>
 
       <li>
-        <a href="#shop" class="navbar-link" data-nav-link>Trang Điểm</a>
-      </li>
-
-      <li>
-        <a href="blog.php" class="navbar-link" data-nav-link>Tạp Chí Làm Đẹp</a>
+        <a href="product_trangdiem.php" class="navbar-link" data-nav-link>Trang Điểm</a>
       </li>
 
       <li>
         <a href="contact.php" class="navbar-link" data-nav-link>Liên Hệ</a>
       </li>
 
+      <li class="dropdown">
+            <a class="navbar-link has-after">Tài Khoản</a>
+            <div class="dropdown-content">
+              <?php if (empty($_SESSION['id'])) { ?>
+                <a href="login.php">Đăng Nhập</a>
+                <a href="register.php">Đăng Ký</a>
+              <?php } else { ?>
+                <a href="myaccount.php">Account</a>
+                <a href="./includes/logout.php">Đăng Xuất</a>
+              <?php } ?>
+            </div>
+          </li>
     </ul>
 
   </div>

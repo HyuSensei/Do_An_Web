@@ -4,7 +4,7 @@ session_start();
 
 require_once('./db/config.php');
 $id = "";
-if (isset($_GET['id'])) {
+if (isset($_GET['id'])&&$_GET['id']!="") {
     $id = $_GET['id'];
     $sql = "SELECT*FROM products WHERE id=$id";
     $result = mysqli_query($connect, $sql);
@@ -41,6 +41,8 @@ if (isset($_GET['id'])) {
     $rate_2=$get_rate_2['count'];
     $get_rate_1=get_rate(1,$id);
     $rate_1=$get_rate_1['count'];
+}else{
+    header('location: index.php');
 }
 
 ?>

@@ -4,6 +4,9 @@ if(isset($_SESSION['order_history'])){
     $order_history=$_SESSION['order_history'];
 }
 $action=isset($_GET['action']) ? $_GET['action'] : '';
+if(empty($_SESSION['id'])){
+    header('location:index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -107,13 +110,6 @@ $action=isset($_GET['action']) ? $_GET['action'] : '';
                         <?php } ?>
                         </div>
 
-                        <div class="col-2">
-                        <?php if($action=="order_cancel") { ?>
-                            <a style="font-weight: bold;" href="order_history.php?action=<?php echo 'order_cancel' ?>">Đã hủy</a>
-                        <?php } else { ?>
-                            <a href="order_history.php?action=<?php echo 'order_cancel' ?>">Đã hủy</a>
-                        <?php } ?>
-                        </div>
                     </div>
                 </div>
 

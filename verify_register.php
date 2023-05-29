@@ -14,7 +14,7 @@ require_once('db/config.php');
                     $update_status="UPDATE custumers SET verify_status='1' WHERE verify_token='$click_token'";
                     $query_update_status=mysqli_query($connect,$update_status);
                     if($query_update_status){
-                        $_SESSION['status']="Tài khoản của bạn đang được xác thực";
+                        $_SESSION['status']="Tài khoản của bạn đã được xác thực";
                         header('location:login.php');
                         exit(0);
                     }else{

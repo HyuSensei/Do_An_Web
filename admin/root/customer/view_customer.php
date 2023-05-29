@@ -58,7 +58,7 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['password'] ?></p>
                     </td>
                     <td>
-                        <a href="./customer/edit.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">Sửa</span></a>
+                        <a href="./customer/edit.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Sửa</a>
                     </td>
                     <td>
                         <form action="./customer/code_customer.php" method="POST" class="d-inline">
@@ -70,4 +70,3 @@ $result = mysqli_query($connect, $sql);
         </tbody>
     </table>
 </div>
->

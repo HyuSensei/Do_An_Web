@@ -6,11 +6,10 @@
         $query=mysqli_query($connect,$sql);
         if($query){
             echo '<script>alert("Xác nhận đã nhận hàng thành công!");</script>';
-            echo '<script>window.location.href = "../index.php";</script>';
+            echo '<script>window.location.href = "../order_history.php";</script>';
         }
     }else{
         echo "không tìm thấy id đơn hàng";
     }
-
     mysqli_close($connect);
 ?>

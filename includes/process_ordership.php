@@ -34,8 +34,6 @@ require_once('./db/config.php');
                                         $status_order="Đã xác nhận đưa vào vận chuyển";
                                     }elseif($row['order_status']=='2'){
                                          $status_order="Giao hàng thành công";
-                                    }else{
-                                         $status_order="Đã hủy";
                                     }
                                     echo '
                             <div style="margin-top: 20px;margin-bottom: 30px" class="container-fluid">

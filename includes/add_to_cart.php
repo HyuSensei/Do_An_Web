@@ -18,6 +18,8 @@ require_once('../db/config.php');
         echo '<script>window.location.href = "../index.php";</script>';
     }else{
         $_SESSION['cart'][$id]['quantity']++;
+        echo '<script>alert("Thêm giỏi hàng thành công");</script>';
+        echo '<script>window.location.href = "../index.php";</script>';
     }
     }
     mysqli_close($connect);

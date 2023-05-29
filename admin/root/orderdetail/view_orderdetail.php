@@ -39,4 +39,3 @@ $result = mysqli_query($connect, $sql);
         </tbody>
     </table>
 </div>
->

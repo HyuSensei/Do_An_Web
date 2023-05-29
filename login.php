@@ -31,7 +31,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
             <div class="col-sm-6">
             <?php if (isset($_SESSION['status'])) { ?>
                 <div>
-                    <p style="color: #c4908f;font-size: 15px;width: 80%;font-weight: bold;padding-top: 10px;background-color: #f3e0df;height: 40px;border-radius: 5px;">
+                    <p style="color: #c4908f;font-size: 15px;width: 80%;font-weight: bold;padding-top: 10px;background-color: #f3e0df;height: 40px;border-radius: 10px;padding-left: 10px;">
                             <?php
                              echo $_SESSION['status'];
                              unset($_SESSION['status']);

@@ -4,6 +4,10 @@ require_once('../db/config.php');
 require_once('../mail.php');
 
 if (isset($_POST['register'])) {
+    if(empty($_POST['name'])||empty($_POST['email'])||empty($_POST['email'])||empty($_POST['phone_number'])||empty($_POST['address'])||empty($_POST['password'])){
+        $_SESSION['status'] = "Vui lòng điền đầy đủ thông tin đăng ký";
+        header('location:../register.php');
+    }else{
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone_number = $_POST['phone_number'];
@@ -32,6 +36,7 @@ if (isset($_POST['register'])) {
             $_SESSION['status'] = "Đăng ký không thành công";
             header('location:../register.php');
         }
+    }
     }
 }
 

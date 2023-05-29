@@ -42,3 +42,26 @@
         }
     });
 </script>
+
+<script>
+    var ctx2 = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($thang); ?>,
+            datasets: [{
+                label: 'Rate',
+                data: <?php echo json_encode($giaTri); ?>,
+                backgroundColor: 'rgb(135, 0, 255)'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 12
+                }
+            }
+        }
+    });
+</script>

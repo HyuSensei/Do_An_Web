@@ -1,6 +1,22 @@
 <?php
 require_once('./data/connnect.php');
-$sql = "select * from products";
+//$sql = "select * from products";
+if(isset($_GET['page'])){
+    $page=$_GET['page'];
+}else{
+    $page=1;
+}
+$prev = $page - 1;
+$next = $page + 1;
+
+$product_page=5;
+$total_pages_sql = "SELECT COUNT(*)  FROM products";
+$result = mysqli_query($connect, $total_pages_sql);
+$total_rows = mysqli_fetch_array($result)[0];
+$total_pages = ceil($total_rows / $product_page);
+
+$offset=($page-1)*$product_page;
+$sql = "SELECT * FROM products LIMIT $offset, $product_page";
 $result = mysqli_query($connect, $sql);
 ?>
 
@@ -10,7 +26,7 @@ $result = mysqli_query($connect, $sql);
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <th>Tên sản phẩm</th>
                 <th>Mô tả</th>
                 <th>Ảnh</th>
@@ -56,10 +72,9 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['category'] ?></p>
                     </td>
                     <td>
-                        <a style="text-decoration: none;" href="./product/edit.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">Sửa</span></a>
+                        <a style="text-decoration: none;" href="./product/edit.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Sửa</a>
                     </td>
                     <td>
-                        <!-- <a href="./product/delete.php?id=<?php echo $value['id'] ?>"><span class="fa fa-trash" style="color: #e28585;"></span></a> -->
                         <form action="./product/code.php" method="POST" class="d-inline">
                             <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Xóa</button>
                         </form>
@@ -68,5 +83,20 @@ $result = mysqli_query($connect, $sql);
             <?php endforeach ?>
         </tbody>
     </table>
+    <div class="container">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>"><a class="page-link"
+                        href="<?php if($page <= 1){ echo '#'; } else { echo "?page=" . $prev; } ?>"><<</a></li>
+                        <?php for($i = 1; $i <= $total_pages; $i++ ): ?>
+                            <li class="page-item <?php if($page == $i) {echo 'active'; } ?>">
+                                <a class="page-link" href="?page=<?= $i; ?>"> <?= $i; ?> </a>
+                            </li>
+                    <?php endfor; ?>
+                        <li class="page-item <?php if($page >= $total_pages) { echo 'disabled'; } ?>"><a class="page-link"
+                        href="<?php if($page >= $total_pages){ echo '#'; } else {echo "?page=". $next; } ?>">>></a></li>
+                    </ul>
+                </nav>
+        </div>
 </div>
 >

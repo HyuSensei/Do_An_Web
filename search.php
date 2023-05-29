@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+if(empty($_GET['search'])&&$_GET['search']==""){
+    header('location: index.php');
+}
  ?>
 <!DOCTYPE html>
 <html lang="zxx">

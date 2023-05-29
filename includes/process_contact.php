@@ -1,8 +1,11 @@
 <?php
     session_start();
-    include('.config.phpconfig.php');
+    include('../db/config.php');
     if(isset($_SESSION['id'])){
-        if(isset($_POST['name'])&&isset($_POST['mail'])&&isset($_POST['mess'])){
+        if(empty($_POST['name'])||empty($_POST['mail'])||empty($_POST['mess'])){
+            echo '<script>alert("Vui lòng điền đầy đủ thông tin!");</script>';
+            echo '<script>window.location.href = "../contact.php";</script>';
+        }else{
             $name=$_POST['name'];
             $email=$_POST['mail'];
             $mess=$_POST['mess'];
@@ -15,9 +18,6 @@
             }else{
                 echo "Lỗi";
             }
-        }else{
-            echo '<script>alert("Vui lòng điền đầy đủ thông tin!");</script>';
-            echo '<script>window.location.href = "../contact.php";</script>';
         }
     }else{
         echo '<script>alert("Vui lòng đăng nhập để gửi thông tin liên hệ!");</script>';

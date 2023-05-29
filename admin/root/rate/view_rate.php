@@ -27,10 +27,10 @@ $result = mysqli_query($connect, $sql);
                         <p><?php echo $value['id'] ?></p>
                     </td>
                     <td>
-                        <p ><?php echo $value['id_product'] ?></p>
+                        <p><?php echo $value['id_product'] ?></p>
                     </td>
                     <td>
-                        <p ><?php echo $value['id_custumer'] ?></p>
+                        <p><?php echo $value['id_custumer'] ?></p>
                     </td>
                     <td>
                         <p><?php echo $value['id_order'] ?></p>
@@ -49,7 +49,7 @@ $result = mysqli_query($connect, $sql);
                     </td>
 
                     <td>
-                        <a href="./rate/edit.php?id=<?php echo $value['id'] ?>"><span class="material-icons" style="color: #e28585;">Sửa</span></a>
+                        <a href="./rate/edit.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Sửa</a>
                     </td>
                     <td>
                         <form action="./rate/code_rate.php" method="POST" class="d-inline">
@@ -61,4 +61,3 @@ $result = mysqli_query($connect, $sql);
         </tbody>
     </table>
 </div>
->

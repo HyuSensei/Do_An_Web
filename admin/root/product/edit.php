@@ -20,9 +20,7 @@ require('../data/connnect.php');
 <body>
 
     <div class="container mt-5">
-
         <?php include('message.php'); ?>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -32,7 +30,6 @@ require('../data/connnect.php');
                         </h4>
                     </div>
                     <div class="card-body">
-
                         <?php
                         if (isset($_GET['id'])) {
                             $id = mysqli_real_escape_string($connect, $_GET['id']);
@@ -79,7 +76,6 @@ require('../data/connnect.php');
                                             Sửa sản phẩm
                                         </button>
                                     </div>
-
                                 </form>
                         <?php
                             } else {

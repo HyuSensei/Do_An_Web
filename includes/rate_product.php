@@ -12,11 +12,6 @@ require_once('./db/config.php');
             AND orders.id=$order_id";
             $result=mysqli_query($connect,$sql);
             if(mysqli_num_rows($result)>0) {
-                $sql_id_customer = "SELECT * FROM orders WHERE id_customer='$id'";
-                $result_id_customer = mysqli_query($connect, $sql_id_customer);
-                $check_order=0;
-                $check_id_product=0;
-                $status_order="";
                     while ($row = mysqli_fetch_assoc($result)){
                         $id_product=$row['id_product'];
                         $id_order=$row['id_order'];
@@ -51,7 +46,7 @@ require_once('./db/config.php');
                            </div>
                        </div>';
                         }
-                        $id_order=$row['id_order'];
+                        //$id_order=$row['id_order'];
                         $sql_check_rate="SELECT id_order, COUNT(DISTINCT id_product) AS count_rate FROM rating WHERE id_order=$id_order GROUP BY id_order";
                         $sql_check_order_detail="SELECT id_order, COUNT(DISTINCT id_product) AS count_order FROM order_detail WHERE id_order=$id_order GROUP BY id_order";
                         if(mysqli_num_rows(mysqli_query($connect,$sql_check_rate))>0){

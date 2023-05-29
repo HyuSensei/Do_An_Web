@@ -42,10 +42,10 @@
                 header('location:../login.php');
                 exit(0);
             }
+        }else{
+            $_SESSION['status']="Vui lòng điền thông tin đăng nhập";
+            header('location:../login.php');
+            exit(0);
         }
-    }else{
-        $_SESSION['status']="Vui lòng điền thông tin đăng nhập";
-        header('location:../login.php');
-        exit(0);
     }
     mysqli_close($connect);

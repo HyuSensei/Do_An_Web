@@ -34,8 +34,6 @@ require_once('./db/config.php');
                                         $status_order="Đã xác nhận đưa vào vận chuyển";
                                     }elseif($row['order_status']=='2'){
                                          $status_order="Giao hàng thành công";
-                                    }else{
-                                         $status_order="Đã hủy";
                                     }
                                     $id_order=$row['id_order'];
                                     $sql_check_rate="SELECT id_order, COUNT(DISTINCT id_product) AS count_rate FROM rating WHERE id_order=$id_order GROUP BY id_order";
