@@ -11,24 +11,26 @@ session_start();
     <?php include('css.php') ?>
     <title>SkinLeLe</title>
 </head>
+
 <body>
     <?php
     include 'header.php'
     ?>
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" style="margin-top: 100px;margin-bottom: 100px;">
         <div class="row">
             <div class="col-sm-6">
-            <?php if (isset($_SESSION['status'])) { ?>
-                <div>
-                    <p style="width: 80%;padding-top: 10px;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;border-radius: 10px;padding-left: 10px;">
+                <?php if (isset($_SESSION['status'])) { ?>
+                    <div>
+                        <p style="width: 80%;padding-top: 10px;background-color: #d4edda;color:#447342;margin-bottom: 20px;height: 40px;border-radius: 10px;padding-left: 10px;">
                             <?php
-                             echo $_SESSION['status'];
-                             unset($_SESSION['status']);
+                            echo $_SESSION['status'];
+                            unset($_SESSION['status']);
                             ?>
-                    </p>
-                </div>
-         <?php   } ?>
-                <h2 style="font-size: 20px;margin-bottom: 20px;font-weight: bold;width: 80%;text-align: center;">ĐĂNG KÝ</h2>
+                        </p>
+                    </div>
+                <?php   } ?>
+                <h2 style="font-size: 20px;margin-bottom: 20px;font-weight: bold;width: 80%;text-align: center;">ĐĂNG KÝ
+                </h2>
                 <form class="form" method="POST" action="./includes/process_register.php">
 
                     <div class="form-group">
@@ -59,7 +61,7 @@ session_start();
                             margin-top: 20px;" type="submit" value="Đăng Ký">
                 </form>
             </div>
-            <div class="col-sm-6"><img src="./img/bannersignup.PNG" alt="" width="90%"></div>
+            <div class="col-sm-6"><img src="https://templates.g5plus.net/glowing-bootstrap-5/assets/images/banner/banner-32.jpg" alt="" width="90%"></div>
         </div>
     </div>
 
