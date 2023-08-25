@@ -40,7 +40,7 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
                 </div>
          <?php   } ?>
                 <h2 style="font-size: 20px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;font-weight: bold;text-align: center;width: 80%;">ĐĂNG NHẬP</h2>
-                <form class="form" method="POST" action="/includes/process_login.php">
+                <form class="form" method="POST" action="./includes/process_login.php">
                     <div class="form-group">
                         <label style="font-size: 18px;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;">Tên đăng nhập:</label>
                             <input style="height: 40px;width: 80%;font-size: 14px" type="email" class="form-control" name="email" placeholder="Nhập email..." value="<?php echo $email?>">
