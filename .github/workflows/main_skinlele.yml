@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'SkinLeLe'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_176E4F88BE8B4720B97DBB32AE1FED8F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_95CC29DA53284F259A69B65070E79B03 }}
           package: .
