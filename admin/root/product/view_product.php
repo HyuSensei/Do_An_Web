@@ -73,7 +73,7 @@ $result = mysqli_query($connect, $sql);
                     <p><?php echo $value['category'] ?></p>
                 </td>
                 <td>
-                    <a style="text-decoration: none;" href="./product/edit.php?id=<?php echo $value['id'] ?>"
+                    <a style="text-decoration: none;" href="edit.php?id=<?php echo $value['id'] ?>"
                         class="btn btn-info btn-sm">Sửa</a>
                 </td>
                 <td>
